@@ -2,7 +2,7 @@
 
 A small EVM checkout for the QDay Aevum Builder Challenge. A merchant creates a fixed-amount invoice; a payer approves that exact amount and pays; the ERC-20 moves directly from payer to merchant. The contract holds no tokens and charges no fee. The included CLI can compile, deploy, create invoices, and pay them.
 
-**Status: an end-to-end payment was completed and independently checked on Aevum Testnet (chain ID 44005).** The local Ganache demo and its video remain separate mock evidence. A public GitHub repository and DoraHacks submission are still pending; see [remaining blockers](#remaining-blockers).
+**Status: an end-to-end payment was completed and independently checked on Aevum Testnet (chain ID 44005).** The [public GitHub repository](https://github.com/Stan-lee13/qday-aevum-checkout) contains the project source and documentation. The DoraHacks profile/submission remains pending because required profile details are unknown; see [remaining blockers](#remaining-blockers). The local Ganache demo and its video remain separate mock evidence.
 
 ## Live Aevum testnet demonstration
 
