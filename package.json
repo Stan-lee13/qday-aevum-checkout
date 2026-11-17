@@ -1,0 +1,23 @@
+{
+  "name": "aevum-checkout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local prototype of an ERC-20 invoice payment flow for QDay Aevum Testnet",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/checkout.mjs compile",
+    "test": "node --test test/*.test.mjs",
+    "demo": "node scripts/demo.mjs",
+    "deploy": "node scripts/checkout.mjs deploy",
+    "invoice": "node scripts/checkout.mjs invoice",
+    "pay": "node scripts/checkout.mjs pay"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0",
+    "solc": "^0.8.30"
+  },
+  "devDependencies": {
+    "ganache": "^7.9.2"
+  }
+}
