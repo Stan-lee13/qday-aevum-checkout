@@ -2,7 +2,7 @@
 
 A small EVM checkout for the QDay Aevum Builder Challenge. A merchant creates a fixed-amount invoice; a payer approves that exact amount and pays; the ERC-20 moves directly from payer to merchant. The contract holds no tokens and charges no fee. The included CLI can compile, deploy, create invoices, and pay them.
 
-**Status: an end-to-end payment was completed and independently checked on Aevum Testnet (chain ID 44005).** The [public GitHub repository](https://github.com/Stan-lee13/qday-aevum-checkout) contains the project source and documentation. The DoraHacks profile/submission remains pending because required profile details are unknown; see [remaining blockers](#remaining-blockers). The local Ganache demo and its video remain separate mock evidence.
+**Status: an end-to-end payment was completed and independently checked on Aevum Testnet (chain ID 44005).** The [public GitHub repository](https://github.com/Stan-lee13/qday-aevum-checkout) contains the project source and documentation. Registration for the challenge is confirmed; the status of the project entry is tracked on DoraHacks. The local Ganache demo remains separate mock evidence.
 
 ## Live Aevum testnet demonstration
 
@@ -70,7 +70,7 @@ npm run demo
 
 The tests compile and deploy the actual Solidity contract plus a test-only mock token to ephemeral local Ganache. Assertions cover exact direct settlement, invoice/payer event and state, zero amount, duplicate payment, unknown invoice, merchant self-payment, zero-token-address rejection, and atomic rollback when `transferFrom` fails because approval is missing. The retry assertion confirms a reverted attempt leaves the invoice payable. CLI help and unknown-command handling do not require an RPC.
 
-`npm run demo` runs one complete invoice flow against the actual `Checkout.sol` contract on a fresh in-memory Ganache chain (chain ID 31337) and a mintable local mock token. It makes no external RPC calls and creates no persistent chain state. A separate 36-second silent video summarizes this local mock only; it is **not** live Aevum evidence and is not included in this repository.
+`npm run demo` runs one complete invoice flow against the actual `Checkout.sol` contract on a fresh in-memory Ganache chain (chain ID 31337) and a mintable local mock token. It makes no external RPC calls and creates no persistent chain state. The [silent demo video](https://raw.githubusercontent.com/Stan-lee13/qday-aevum-checkout/main/demo/aevum-checkout-demo.mp4) presents the documented historical Aevum transaction evidence and a clearly labeled local mock output; it is a slide-based summary, not a recording of a new live transaction.
 
 Ganache emitted a warning that its optional µWS native binary was unavailable for this Node build and fell back to JavaScript. The local tests passed under that fallback. The earlier npm audit reported two production dependency advisories (one low, one high); inspect with `npm audit` before use in a higher-risk context.
 
@@ -94,14 +94,14 @@ The payer needs enough tUSD8 and tQDAY. `pay` makes a token-approval transaction
 ## Remaining blockers
 
 - Public source and documentation: [QDay Aevum Checkout repository](https://github.com/Stan-lee13/qday-aevum-checkout).
-- The DoraHacks profile/submission is not complete. Required organization, community affiliation, and introduction details are unknown and have not been invented.
-- The local mock video is not a live testnet demo. The on-chain transactions above are the live testnet evidence.
+- The demo video is a summary, not a recording of a new live transaction. The on-chain transactions above are the testnet evidence.
 - The contract source has not been verified on Blockscout, and the contract has not been audited.
 
 ## Files
 - `contracts/Checkout.sol` — invoice and payment contract.
 - `scripts/checkout.mjs` — compile/deploy/invoice/pay CLI with chain-ID guard.
 - `scripts/demo.mjs` — isolated local Ganache demonstration with a mock token.
+- `scripts/render_aevum_evidence_video.py`, `demo/aevum-checkout-demo.mp4` — renderer and silent evidence/mock-demo summary.
 - `test/checkout.test.mjs` — local EVM end-to-end and negative tests.
 - `package.json`, `package-lock.json` — dependency manifest and lockfile.
 - `LICENSE` — MIT license for this prototype.
